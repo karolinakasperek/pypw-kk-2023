@@ -35,3 +35,5 @@ person = {
 
 for parent in person["parents"]:
     print(parent["name"], parent["age"])
+
+print(person["dfghj"])
