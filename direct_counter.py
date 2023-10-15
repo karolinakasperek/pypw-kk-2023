@@ -10,10 +10,6 @@ def words_count(text:str) -> dict:
     text_word = text_low.split()
 
     dict_count = Counter(text_word)
-    # dict_count = defaultdict(int)
-    #
-    # for word in text_word:
-    #     dict_count[word] += 1
     return dict_count
 
 
