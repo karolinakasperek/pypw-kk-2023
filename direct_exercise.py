@@ -1,7 +1,12 @@
 phones = {}
-
+commands = [
+    "new_contact", "show_contacts"
+]
 while True:
-    command = input("Pick an option: new_contact, show_contacts: ")
+    command = input(f"Pick an option: {commands}: ")
+    while command not in commands:
+        print("Unknown command, try again: \n")
+        command = input(f"Pick an option: {commands}: ")
     if command == "new_contact":
         name = input("Type full name of user: ")
         phone_number = input("Type users phone number: ")
@@ -10,9 +15,6 @@ while True:
         print("This is your current dictionary: \n")
         for name, phone in phones.items():
             print(name, phone)
-    else:
-        print("Unknown command")
-
     command = input("Do you want to continue? (Y/N): ")
     if command == "N":
         break
