@@ -1,4 +1,15 @@
-phones = {}
+import json
+from pathlib import Path
+
+
+path = Path("phones.json")
+if path.exists():
+    f = open("phones.json", "r")
+    phones = json.load(f)
+    f.close()
+else:
+    phones = {}
+
 commands = [
     "new_contact", "show_contacts"
 ]
@@ -15,6 +26,12 @@ while True:
         print("This is your current dictionary: \n")
         for name, phone in phones.items():
             print(name, phone)
-    command = input("Do you want to continue? (Y/N): ")
-    if command == "N":
+    answer = input("Do you want to continue? (Y/N): ")
+    while answer.lower() not in ["y", "n"]:
+        print("choose Y or N only")
+        answer = input("Do you want to continue? (Y/N): ")
+    if answer.lower() == "n":
+        f = open("phones.json", "w")
+        json.dump(phones, f)
+        f.close()
         break
