@@ -1,13 +1,19 @@
-_cache = {}
+
+def cached(fn):
+    cache = {}
+
+    def wrapper(n):
+        if n not in cache:
+            cache[n] = fn(n)
+        return cache[n]
+    return wrapper
 
 
+@cached
 def fib(n):
     if n in [0, 1]:
         return n
-    if n not in _cache:
-        _cache[n] = fib(n - 1) + fib(n - 2)
-    return _cache[n]
+    return fib(n - 1) + fib(n - 2)
 
 
-print(fib(100))
-print(len(_cache))
+print(fib(40))
