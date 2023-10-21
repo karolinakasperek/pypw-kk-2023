@@ -3,9 +3,9 @@ import time
 
 
 def timeit(fn):
-    def wrapper():
+    def wrapper(*args, **kwargs):
         start = time.time()
-        result = fn()
+        result = fn(*args, **kwargs)
         end = time.time()
         print(f"Duration {end - start}")
         return result
@@ -15,7 +15,12 @@ def timeit(fn):
 @timeit
 def greeting():
     print("Hello World")
-    sleep(3)
+    sleep(1)
+
+@timeit
+def div(a, b):
+    return a/b
 
 
 greeting()
+div(10, 15)
