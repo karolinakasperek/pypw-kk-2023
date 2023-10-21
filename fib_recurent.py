@@ -1,15 +1,7 @@
-
-def cached(fn):
-    cache = {}
-
-    def wrapper(n):
-        if n not in cache:
-            cache[n] = fn(n)
-        return cache[n]
-    return wrapper
+from functools import lru_cache
 
 
-@cached
+@lru_cache
 def fib(n):
     if n in [0, 1]:
         return n
