@@ -6,5 +6,5 @@ def fib(n):
     return fib_items
 
 
-n = int(input("Your element: ")) - 1
+n = int(input("Your element: "))
 print(fib(n)[n])
