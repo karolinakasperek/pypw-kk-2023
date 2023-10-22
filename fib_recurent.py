@@ -14,7 +14,7 @@ def cached(fn):
     return wrapper
 
 
-def save_file(fn):
+def log_args(fn):
     def wrapper2(*args, **kwargs):
         path = Path("arguments.txt")
         if path.exists():
@@ -33,7 +33,7 @@ def save_file(fn):
     return wrapper2
 
 
-@save_file
+@log_args
 @cached
 def fib(n):
     if n in [0, 1]:

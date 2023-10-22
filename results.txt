@@ -1,0 +1,2 @@
+The most common letter is:
+f 5
